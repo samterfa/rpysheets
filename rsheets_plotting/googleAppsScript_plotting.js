@@ -1,4 +1,4 @@
-var apiURL = "{YourGoogleCloudRunAppURL}";
+var apiURL = "{R_GoogleCloudRunAppURL}";
 
 /**
  * Run an R script on spreadsheet data
