@@ -1,4 +1,4 @@
-var apiURL = "{R_GoogleCloudRunAppURL}";
+var rApiURL = "{R_GoogleCloudRunAppURL}";
 
 /**
  * Run an R script on spreadsheet data
@@ -9,7 +9,7 @@ var apiURL = "{R_GoogleCloudRunAppURL}";
  * @param c A variable to pass into the rscript. It can be a value or cell reference.
  * @param d A variable to pass into the rscript. It can be a value or cell reference.
  * @param e A variable to pass into the rscript. It can be a value or cell reference.
- * @return The results of the R script.
+ * @return The URL of an R plot.
  * @customfunction
  */
 function rplot(rscript, a = null, b = null, c = null, d = null, e = null){
@@ -31,7 +31,7 @@ function rplot(rscript, a = null, b = null, c = null, d = null, e = null){
     'payload' : JSON.stringify(data)
   };
 
-  var response = UrlFetchApp.fetch(apiURL + '/' + endpoint, options);
+  var response = UrlFetchApp.fetch(rApiURL + '/' + endpoint, options);
   
   data = JSON.parse(response.getContentText());
 
@@ -73,7 +73,7 @@ function rscript(rscript, a = null, b = null, c = null, d = null, e = null){
     'payload' : JSON.stringify(data)
   };
 
-  var response = UrlFetchApp.fetch(apiURL + '/' + endpoint, options);
+  var response = UrlFetchApp.fetch(rApiURL + '/' + endpoint, options);
 
   data = JSON.parse(response.getContentText());
 

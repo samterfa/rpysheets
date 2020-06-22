@@ -153,6 +153,9 @@ apifunction <- function(rscript, a = NULL, b = NULL, c = NULL, d = NULL, e = NUL
   if(!is.null(names(results))){
     
     # Move column names to first row and convert to matrix.
+    
+    results <- results %>% mutate_all(as.character)
+    
     results <- bind_rows(results %>% slice(1), results)
     
     results[1,] <- names(results)
